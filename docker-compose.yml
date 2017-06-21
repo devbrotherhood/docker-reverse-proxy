@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+      - ./conf/my_proxy.conf:/etc/nginx/conf.d/my_proxy.conf:ro
+
+  webapp1:
+    image: 'wordpress'
+    container_name: 'blog1'
+    expose:
+      - "81"
+    environment:
+      - "VIRTUAL_HOST=teste.local"
+    links:
+      - "nginx-proxy"
+
