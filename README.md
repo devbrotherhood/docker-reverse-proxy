@@ -45,3 +45,8 @@ services:
 ```
 
 
+### References
+
+- https://blog.florianlopes.io/host-multiple-websites-on-single-host-docker/
+- https://www.digitalocean.com/community/questions/how-to-bind-multiple-domains-ports-80-and-443-to-docker-contained-applications
+- https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy
