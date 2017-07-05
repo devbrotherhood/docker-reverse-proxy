@@ -18,4 +18,20 @@ services:
       - "VIRTUAL_HOST=teste.local"
     links:
       - "nginx-proxy"
-
+      
+  database-mysql:
+    image: 'mysql'
+    container_name: 'database-mysql'
+    ports:
+      - "3306:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=yyyyy"
+      - "MYSQL_ROOT_HOST=0.0.0.0"
+      - "MYSQL_USER=xxxxxxx"
+      - "MYSQL_PASSWORD=zzzzzzzzzzz"
+      - "right=WRITE"
+    volumes:
+      - /var/www/database/mysql/conf.d:/etc/mysql/conf.d 
+      - /var/www/database/mysql/mysql.conf.d:/etc/mysql/mysql.conf.d 
+      - /var/www/database/mysql/data:/var/lib/mysql  
+      - /var/www/database/mysql/log:/var/log/
